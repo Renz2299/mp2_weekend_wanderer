@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital@0;1&display=swap');
+
+body {
+    background-color: #F3EFCD;
+}
+
+.logo {
+    font-family: 'Karla', sans-serif;
+    font-weight: 700;
+    color: #BCFF05;
+    font-size: 30px;
+    padding: 8px 0px 0px 20px;
+}
+
+/* ---------------------------------------------------- navbar */
+
+.navbar {
+    background-color: #476E01;
+    border-radius: 0px 0px 10px 10px;
+    box-shadow: 0 0 5px black;
+}
+
+.nav-link {
+    font-family: 'Karla', sans-serif;
+    font-weight: 400;
+    color: #BCFF05;
+    margin-right: 15px;
+}
+
+.nav-link:hover, .logo:hover {
+    color: #F3EFCD;
+}
+
+#main-nav .active {
+    font-weight: 700;
+    color: #F3EFCD;
+}
+
+.navbar-toggler {
+    border: none;
+    color: #BCFF05;
+}
+
+.navbar-toggler:hover {
+    color: #F3EFCD;
+}
+
+.show {
+    padding-left: 20px;
+}
+
+.page-content {
+    padding-top: 7em;
+}
+
+/* ------------------------------------------------ index.html */
+
+.tagline {
+    font-family: 'Karla', sans-serif;
+    font-weight: 400;
+    color: #5C3A27;
+    text-align: center;
+}
+
+/* ------------------------------------------------------- map */
+
+#map {
+    border-radius: 4px;
+    height: 500px;
+}
+
+/* ---------------------------------------------------- footer */
+
+footer {
+    background-color: #476E01;
+    border-radius: 10px 10px 0px 0px;
+    padding: 20px 30px 10px 30px;
+}
+
+#footer-details {
+    color: #BCFF05;
+}
+
+.social-links a {
+    color: #BCFF05;
+}
+
+.social-links li {
+    list-style-type: none;
+    float: right;
+    margin-right: 30px;
+}
+
+.social-links li:first-child {
+    margin-right: 0px;
+}
+
+.social-links a:hover {
+    color: #F3EFCD;
+}
+
+/* --------------------------------------------- media queries */
+
+@media only screen and (max-width: 575px) {
+    #footer-details p {
+        float: right;
+    }
+}
