@@ -141,7 +141,7 @@ function showPanel(placeResult) {
   
     // Clear previous details
     while (infoPanel.lastChild) {
-      infoPanel.removeChild(infoPane.lastChild);
+      infoPanel.removeChild(infoPanel.lastChild);
     }
     // Add primary photo, if there is one
     if (placeResult.photos != null) {
