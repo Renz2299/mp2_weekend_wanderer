@@ -153,7 +153,7 @@ function showPanel(placeResult) {
     }
   
     // Add place details with formatting
-    let name = document.createElement('h1');
+    let name = document.createElement('h2');
     name.classList.add('place');
     name.textContent = placeResult.name;
     infoPanel.appendChild(name);

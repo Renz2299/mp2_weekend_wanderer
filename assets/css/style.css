@@ -70,6 +70,10 @@ body {
     height: 500px;
 }
 
+.map-col {
+    margin: 20px 0px 16px 0px;
+}
+
 /* ------------------------------------------------------ card */
 
 #card {
@@ -80,13 +84,12 @@ body {
     border-radius: 4px;
 }
 
-.open {
-    height: 500px;
+.card-col {
+    margin-bottom: 16px;
 }
 
-.col-card {
-    padding-top: 1.5em;
-    padding-bottom: 1.5em;
+.open {
+    height: 500px;
 }
 
 /* Stretches portrait images */
@@ -97,7 +100,7 @@ body {
     display: block;
 }
 
-.place, h1 {
+.place, h2 {
     font-family: 'Karla', sans-serif;
     color: #5C3A27;
     text-transform: uppercase;
@@ -130,8 +133,9 @@ footer {
     padding: 20px 30px 10px 30px;
 }
 
-#footer-details {
+#footer-details P {
     color: #BCFF05;
+    padding: 0px;
 }
 
 .social-links a {
@@ -154,8 +158,20 @@ footer {
 
 /* --------------------------------------------- media queries */
 
-@media only screen and (max-width: 575px) {
+@media only screen and (max-width: 576px) {
     #footer-details p {
         float: right;
+    }
+}
+
+@media only screen and (width: 576px) {
+    #footer-details p {
+        float: left;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .col-sm-12 {
+        padding: 0% 10%;
     }
 }
