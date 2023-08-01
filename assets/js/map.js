@@ -11,14 +11,18 @@ let infoWindow;
 let currentInfoWindow;
 let service;
 let infoPanel;
+let infoPanelPhoto;
+let infoPanelDetails;
 
 function initMap() {
     mapBounds = new google.maps.LatLngBounds();
     infoWindow = new google.maps.InfoWindow;
     currentInfoWindow = infoWindow;
 
-    // Assigns 'card' from index.html to infoPanel
+    // Assigns 'card', 'photo' and 'details' from index.html to infoPanel variables
     infoPanel = document.getElementById('card');
+    infoPanelPhoto = document.getElementById('photo');
+    infoPanelDetails = document.getElementById('details');
 
     // HTML5 geolocation
     if (navigator.geolocation) {
@@ -140,33 +144,37 @@ function showPanel(placeResult) {
     }
   
     // Clear previous details
-    while (infoPanel.lastChild) {
-      infoPanel.removeChild(infoPanel.lastChild);
+    while (infoPanelPhoto.lastChild) {
+        infoPanelPhoto.removeChild(infoPanelPhoto.firstChild);
     }
+    while (infoPanelDetails.hasChildNodes()) {
+        infoPanelDetails.removeChild(infoPanelDetails.firstChild);
+    }
+
     // Add primary photo, if there is one
     if (placeResult.photos != null) {
       let firstPhoto = placeResult.photos[0];
       let photo = document.createElement('img');
       photo.classList.add('hero');
       photo.src = firstPhoto.getUrl();
-      infoPanel.appendChild(photo);
+      infoPanelPhoto.appendChild(photo);
     }
   
     // Add place details with formatting
     let name = document.createElement('h2');
     name.classList.add('place');
     name.textContent = placeResult.name;
-    infoPanel.appendChild(name);
+    infoPanelDetails.appendChild(name);
     if (placeResult.rating != null) {
       let rating = document.createElement('p');
       rating.classList.add('details');
       rating.textContent = `Rating: ${placeResult.rating} \u272e`;
-      infoPanel.appendChild(rating);
+      infoPanelDetails.appendChild(rating);
     }
     let address = document.createElement('p');
     address.classList.add('details');
     address.textContent = placeResult.formatted_address;
-    infoPanel.appendChild(address);
+    infoPanelDetails.appendChild(address);
     if (placeResult.website) {
       let websitePara = document.createElement('p');
       let websiteLink = document.createElement('a');
@@ -175,7 +183,7 @@ function showPanel(placeResult) {
       websiteLink.title = placeResult.website;
       websiteLink.href = placeResult.website;
       websitePara.appendChild(websiteLink);
-      infoPanel.appendChild(websitePara);
+      infoPanelDetails.appendChild(websitePara);
     }
   
     // Open the infoPanel
