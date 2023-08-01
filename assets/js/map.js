@@ -17,6 +17,9 @@ function initMap() {
     infoWindow = new google.maps.InfoWindow;
     currentInfoWindow = infoWindow;
 
+    // Assigns 'card' from index.html to infoPanel
+    infoPanel = document.getElementById('card');
+
     // HTML5 geolocation
     if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(position => {
@@ -94,7 +97,87 @@ function createMarkers(places) {
         map: map,
         title: place.name
       });
+      
+      // Adds click event listener to each marker
+      google.maps.event.addListener(marker, 'click', () => {
+        let request = {
+          placeId: place.place_id,
+          fields: ['name', 'formatted_address', 'geometry', 'rating', 'website', 'photos']
+        };
+  
+        // Only fetch place details when user clicks on a marker
+        service.getDetails(request, (placeResult, status) => {
+          showDetails(placeResult, marker, status)
+        });
+      });
+      
       mapBounds.extend(place.geometry.location);
     });
+
+    // Zooms the map to fit
     map.fitBounds(mapBounds);
+}
+
+// Shows place details in infoWindow above marker
+function showDetails(placeResult, marker, status) {
+    if (status === google.maps.places.PlacesServiceStatus.OK) {
+      let placeInfowindow = new google.maps.InfoWindow();
+      placeInfowindow.setContent('<div><strong>' + placeResult.name + '</strong><br>' + 'Rating:' + placeResult.rating + '</div>');
+      placeInfowindow.open(marker.map, marker);
+      currentInfoWindow.close();
+      currentInfoWindow = placeInfowindow;
+      showPanel(placeResult);
+    } else {
+      console.log('showDetails failed:' + status);
+    }
+}
+
+// Displays place details in infoPanel AKA 'card'
+function showPanel(placeResult) {
+    // If infoPanel is already open, close it
+    if (infoPanel.classList.contains("open")) {
+      infoPanel.classList.remove("open");
+    }
+  
+    // Clear previous details
+    while (infoPanel.lastChild) {
+      infoPanel.removeChild(infoPane.lastChild);
+    }
+    // Add primary photo, if there is one
+    if (placeResult.photos != null) {
+      let firstPhoto = placeResult.photos[0];
+      let photo = document.createElement('img');
+      photo.classList.add('hero');
+      photo.src = firstPhoto.getUrl();
+      infoPanel.appendChild(photo);
+    }
+  
+    // Add place details with formatting
+    let name = document.createElement('h1');
+    name.classList.add('place');
+    name.textContent = placeResult.name;
+    infoPanel.appendChild(name);
+    if (placeResult.rating != null) {
+      let rating = document.createElement('p');
+      rating.classList.add('details');
+      rating.textContent = `Rating: ${placeResult.rating} \u272e`;
+      infoPanel.appendChild(rating);
+    }
+    let address = document.createElement('p');
+    address.classList.add('details');
+    address.textContent = placeResult.formatted_address;
+    infoPanel.appendChild(address);
+    if (placeResult.website) {
+      let websitePara = document.createElement('p');
+      let websiteLink = document.createElement('a');
+      let websiteUrl = document.createTextNode(placeResult.website);
+      websiteLink.appendChild(websiteUrl);
+      websiteLink.title = placeResult.website;
+      websiteLink.href = placeResult.website;
+      websitePara.appendChild(websiteLink);
+      infoPanel.appendChild(websitePara);
+    }
+  
+    // Open the infoPanel
+    infoPanel.classList.add("open");
 }
