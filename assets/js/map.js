@@ -35,6 +35,8 @@ function initMap() {
         infoWindow.open(map);
         map.setCenter(pos);
 
+        getNearbyPlaces(pos);
+
     }, () => {
         // Browser supports geolocation, but user has denied permission
         handleLocationError(true, infoWindow);
@@ -61,4 +63,38 @@ function handleLocationError(browserHasGeolocation, infoWindow) {
     'Error: Your browser doesn\'t support geolocation.');
     infoWindow.open(map);
     currentInfoWindow = infoWindow;
+
+    getNearbyPlaces(pos);
+}
+
+// Perform a nearby search request
+function getNearbyPlaces(position) {
+    let request = {
+      location: position,
+      rankBy: google.maps.places.RankBy.DISTANCE,
+      keyword: 'hiking'
+    };
+  
+    service = new google.maps.places.PlacesService(map);
+    service.nearbySearch(request, nearbyCallback);
+  }
+
+// Handles the results (up to 20) of nearby search request
+function nearbyCallback(results, status) {
+    if (status === google.maps.places.PlacesServiceStatus.OK) {
+      createMarkers(results);
+    }
+}
+
+// Creates markers for results and zooms map to fit
+function createMarkers(places) {
+    places.forEach(place => {
+      let marker = new google.maps.Marker({
+        position: place.geometry.location,
+        map: map,
+        title: place.name
+      });
+      mapBounds.extend(place.geometry.location);
+    });
+    map.fitBounds(mapBounds);
 }
