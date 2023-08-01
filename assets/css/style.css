@@ -100,25 +100,26 @@ body {
 }
 
 .hero {
-    padding: 10px;
+    padding: 15px;
     width: 100%;
-    max-height: 250px;
+    max-height: 300px;
     display: block;
 }
 
 .place {
-    padding-top: 10px;
+    padding-top: 15px;
+    padding-right: 15px;
 }
 
 .place, h2 {
     font-family: 'Karla', sans-serif;
     color: #5C3A27;
     text-transform: uppercase;
+    font-weight: 400;
 }
 
 .place, p {
     font-family: 'Roboto', sans-serif;
-
 }
 
 .details {
@@ -128,6 +129,7 @@ body {
 a {
     text-decoration: none;
     color: #BCFF05;
+    padding-right: 20px;
 }
 
 a:hover {
@@ -171,6 +173,10 @@ footer {
     .navbar-toggler {
         padding-left: 20px;
     }
+    .place, .details, #details a {
+        padding-left: 15px;
+        padding-top: 0px;
+    }
     #footer-details p {
         float: right;
     }
@@ -179,5 +185,11 @@ footer {
 @media only screen and (width: 576px) {
     #footer-details p {
         float: left;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .map-col, .card-col {
+        padding: 0% 10%;
     }
 }
