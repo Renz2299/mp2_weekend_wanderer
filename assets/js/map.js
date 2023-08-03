@@ -74,17 +74,30 @@ function handleLocationError(browserHasGeolocation, infoWindow) {
     getNearbyPlaces(pos);
 }
 
+let button = document.getElementById('btnactivity');
+
+let activity = document.getElementById('activity');
+
+var userInput;
+
+function changeInput() {
+  userInput = activity.options[activity.selectedIndex].value;
+  deleteMarkers()
+  mapBounds = new google.maps.LatLngBounds(null);
+  getNearbyPlaces(pos);
+}
+ 
 // Perform a nearby search request
 function getNearbyPlaces(position) {
-    let request = {
-      location: position,
-      rankBy: google.maps.places.RankBy.DISTANCE,
-      keyword: 'hiking'
-    };
+  let request = {
+    location: position,
+    rankBy: google.maps.places.RankBy.DISTANCE,
+    keyword: userInput
+  };
   
-    service = new google.maps.places.PlacesService(map);
-    service.nearbySearch(request, nearbyCallback);
-  }
+  service = new google.maps.places.PlacesService(map);
+  service.nearbySearch(request, nearbyCallback);
+}
 
 // Handles the results (up to 20) of nearby search request
 function nearbyCallback(results, status) {
@@ -93,33 +106,50 @@ function nearbyCallback(results, status) {
     }
 }
 
-// Creates markers for results and zooms map to fit
-function createMarkers(places) {
-    places.forEach(place => {
-      let marker = new google.maps.Marker({
-        position: place.geometry.location,
-        map: map,
-        title: place.name
-      });
-      
-      // Adds click event listener to each marker
-      google.maps.event.addListener(marker, 'click', () => {
-        let request = {
-          placeId: place.place_id,
-          fields: ['name', 'formatted_address', 'geometry', 'rating', 'website', 'photos']
-        };
-  
-        // Only fetch place details when user clicks on a marker
-        service.getDetails(request, (placeResult, status) => {
-          showDetails(placeResult, marker, status)
-        });
-      });
-      
-      mapBounds.extend(place.geometry.location);
-    });
+const iconBase = "assets/img/hiking2.png";
 
-    // Zooms the map to fit
-    map.fitBounds(mapBounds);
+let markers = [];
+
+// Creates markers for results and zooms map to fit
+function createMarkers(results) {
+  results.forEach(place => {
+    let marker = new google.maps.Marker({
+      position: place.geometry.location,
+      icon: iconBase,
+      map: map,
+      title: place.name
+    });
+    
+      
+    // Adds click event listener to each marker
+    google.maps.event.addListener(marker, 'click', () => {
+      let request = {
+        placeId: place.place_id,
+        fields: ['name', 'formatted_address', 'geometry', 'rating', 'website', 'photos']
+      };
+  
+      // Only fetch place details when user clicks on a marker
+      service.getDetails(request, (placeResult, status) => {
+        showDetails(placeResult, marker, status)
+      });
+    });
+      
+    mapBounds.extend(place.geometry.location);
+
+    markers.push(marker);
+  });
+
+  // Zooms the map to fit
+  map.fitBounds(mapBounds);
+
+}
+
+// Deletes previous markers
+function deleteMarkers() {
+  for (var i = 0; i < markers.length; i ++) {
+    markers[i].setMap(null);
+  }
+  markers.length = 0;
 }
 
 // Shows place details in infoWindow above marker
