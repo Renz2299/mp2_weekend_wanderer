@@ -63,6 +63,39 @@ body {
     text-align: center;
 }
 
+/* -------------------------------------------------- criteria */
+
+#activity {
+    border-radius: 4px;
+    border: solid 2px #D6BCA2;
+    background-color: #D6BCA2;
+    color: #5C3A27;
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+    margin-right: 2%;
+    width: 48%;
+}
+
+#btnactivity {
+    border-radius: 4px;
+    border: solid 2px #D6BCA2;
+    background-color: #D6BCA2;
+    color: #5C3A27;
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+    margin-left: 2%;
+    width: 48%;
+}
+
+#activity:focus, #btnactivity:focus {
+    border: solid 2px #5C3A27;
+}
+
+.input-row {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
 /* ------------------------------------------------------- map */
 
 #map {
@@ -70,13 +103,18 @@ body {
     height: 500px;
 }
 
-.map-col {
+.map-row {
     margin: 20px 0px 16px 0px;
 }
 
-.col-sm-12, .col-sm-6 {
+.col-sm-12, .place-details {
     padding-left: 0px;
     padding-right: 0px;
+}
+
+.info-window {
+    color: #5C3A27;
+    font-family: 'Roboto', sans-serif;
 }
 
 /* ------------------------------------------------------ card */
@@ -91,7 +129,7 @@ body {
     margin-right: 0px;
 }
 
-.card-col {
+.card-row {
     margin-bottom: 16px;
 }
 
@@ -173,6 +211,14 @@ footer {
     .navbar-toggler {
         padding-left: 20px;
     }
+    #activity, #btnactivity {
+        width: 100%;
+        margin: 0%;
+        height: 29.2px;
+    }
+    #activity {
+        margin-bottom: 5px;
+    }
     .place, .details, #details a {
         padding-left: 15px;
         padding-top: 0px;
@@ -189,7 +235,7 @@ footer {
 }
 
 @media only screen and (min-width: 768px) {
-    .map-col, .card-col {
+    .map-row, .card-row, .input-row {
         padding: 0% 10%;
     }
 }

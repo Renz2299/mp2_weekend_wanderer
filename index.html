@@ -39,23 +39,23 @@
                     <h2>EXPLORE TRAILS NEAR YOU</h2>
                 </div>
             </div>
-            <div class="row">
-                <select id="activity">
+            <div class="row input-row">
+                <select id="activity" class="col-sm-6">
                     <option value="hiking">Hiking</option>
                     <option value="pubs">Pubs</option>
                     <option value="parking">Parking</option>
                 </select>
-                <button id="btnactivity" onclick="changeInput()">Submit</button>
+                <button id="btnactivity" class="col-sm-6" onclick="changeInput()">Submit</button>
             </div>
-            <div class="row map-col">
+            <div class="row map-row">
                 <div class="col-sm-12">
                     <div id="map"></div>
                 </div>
             </div>
-            <div class="card-col">
+            <div class="card-row">
                 <div id="card" class="row">
-                    <div id="photo" class="col-sm-6"></div>
-                    <div id="details" class="col-sm-6"></div>
+                    <div id="photo" class="col-sm-6 place-details"></div>
+                    <div id="details" class="col-sm-6 place-details"></div>
                 </div>
             </div>
         </div>

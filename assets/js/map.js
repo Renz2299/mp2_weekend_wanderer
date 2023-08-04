@@ -80,10 +80,17 @@ let activity = document.getElementById('activity');
 
 var userInput;
 
+var iconBase;
+
 function changeInput() {
   userInput = activity.options[activity.selectedIndex].value;
   deleteMarkers()
   mapBounds = new google.maps.LatLngBounds(null);
+  if (userInput === 'hiking') {
+    iconBase = "assets/img/hiking2.png";
+  } else if (userInput === 'pubs') {
+    iconBase = "assets/img/hiking.png";
+  }
   getNearbyPlaces(pos);
 }
  
@@ -105,8 +112,6 @@ function nearbyCallback(results, status) {
       createMarkers(results);
     }
 }
-
-const iconBase = "assets/img/hiking2.png";
 
 let markers = [];
 
@@ -156,7 +161,7 @@ function deleteMarkers() {
 function showDetails(placeResult, marker, status) {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
       let placeInfowindow = new google.maps.InfoWindow();
-      placeInfowindow.setContent('<div><strong>' + placeResult.name + '</strong><br>' + 'Rating:' + placeResult.rating + '</div>');
+      placeInfowindow.setContent('<div class="info-window"><strong>' + placeResult.name + '</strong><br>' + 'Rating: ' + placeResult.rating + '</div>');
       placeInfowindow.open(marker.map, marker);
       currentInfoWindow.close();
       currentInfoWindow = placeInfowindow;
