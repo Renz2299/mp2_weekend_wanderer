@@ -86,10 +86,14 @@ function changeInput() {
   userInput = activity.options[activity.selectedIndex].value;
   deleteMarkers()
   mapBounds = new google.maps.LatLngBounds(null);
-  if (userInput === 'hiking') {
+  if (userInput === 'hike') {
     iconBase = "assets/img/hiking2.png";
-  } else if (userInput === 'pubs') {
-    iconBase = "assets/img/hiking.png";
+  } else if (userInput === 'nature reserve') {
+    iconBase = "assets/img/forest2.png";
+  } else if (userInput === 'beach') {
+    iconBase = "assets/img/beach_icon.png";
+  } else if (userInput === 'landmark') {
+    iconBase = "assets/img/tower.png";
   }
   getNearbyPlaces(pos);
 }
