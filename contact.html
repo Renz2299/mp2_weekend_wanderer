@@ -23,9 +23,9 @@
                 </button>
                 <div class="collapse navbar-collapse" id="main-nav">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link active" href="index.html">EXPLORE</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html">EXPLORE</a></li>
                         <li class="nav-item"><a class="nav-link" href="inspiration.html">INSPIRATION</a></li>
-                        <li class="nav-item"><a class="nav-link" href="contact.html">CONTACT</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="contact.html">CONTACT</a></li>
                     </ul>
                 </div>
             </div>
@@ -34,33 +34,21 @@
     </section>
     <section>
         <div class="container page-content">
-            <div class="row tagline">
-                <div class="col-sm-12">
-                    <h2>EXPLORE WHAT'S AROUND YOU</h2>
-                    <p>instructions...</p>
-                </div>
+            <div class="form-container">
+                <form class="contact-form" action="thank_you.html">
+                    <h1>Want to get in contact?</h1>
+                    <p>paragraph ...</p>
+                    <label for="name">Name</label>
+                    <input id="name" class="text-input" type="text" name="name" required>
+                    <label for="email">Email Address</label>
+                    <input id="email" class="text-input" type="email" name="email" required>
+                    <label for="message">Message</label>
+                    <textarea id="message" class="text-input" name="message" rows="4" cols="50" required></textarea>
+                    <label for="attachment">Attachment</label>
+                    <input id="attachment" type="file" class="text-input" name="attachment">
+                    <input type="submit" class="submit-button" value="Submit">
+                </form>
             </div>
-            <div class="row input-row">
-                <select id="activity" class="col-sm-6">
-                    <option value="hike">Hikes</option>
-                    <option value="nature reserve">Nature Reserves</option>
-                    <option value="beach">Beaches</option>
-                    <option value="landmark">Landmarks</option>
-                </select>
-                <button id="btnactivity" class="col-sm-6" onclick="changeInput()">Submit</button>
-            </div>
-            <div class="row map-row">
-                <div class="col-sm-12">
-                    <div id="map"></div>
-                </div>
-            </div>
-            <div class="card-row">
-                <div id="card" class="row">
-                    <div id="photo" class="col-sm-6 place-details"></div>
-                    <div id="details" class="col-sm-6 place-details"></div>
-                </div>
-            </div>
-        </div>
     </section>
     <footer>
         <div id="footer-details" class="row">

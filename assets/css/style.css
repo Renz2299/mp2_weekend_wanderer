@@ -8,7 +8,7 @@ body {
 .logo {
     font-family: 'Karla', sans-serif;
     font-weight: 700;
-    color: #BCFF05;
+    color: #F3EFCD;
     font-size: 30px;
     padding: 8px 0px 0px 20px;
 }
@@ -24,26 +24,26 @@ body {
 .nav-link {
     font-family: 'Karla', sans-serif;
     font-weight: 400;
-    color: #BCFF05;
+    color: #F3EFCD;
     margin-right: 15px;
 }
 
 .nav-link:hover, .logo:hover {
-    color: #F3EFCD;
+    color: #BCFF05;
 }
 
 #main-nav .active {
     font-weight: 700;
-    color: #F3EFCD;
+    color: #BCFF05;
 }
 
 .navbar-toggler {
     border: none;
-    color: #BCFF05;
+    color: #F3EFCD;
 }
 
 .navbar-toggler:hover {
-    color: #F3EFCD;
+    color: #BCFF05;
 }
 
 .show {
@@ -69,9 +69,9 @@ body {
 
 #activity {
     border-radius: 4px;
-    border: solid 2px #D6BCA2;
-    background-color: #D6BCA2;
-    color: #5C3A27;
+    border: solid 2px #5C3A27;
+    background-color: #5C3A27;
+    color: #F3EFCD;
     font-family: 'Roboto', sans-serif;
     text-transform: uppercase;
     margin-right: 2%;
@@ -80,9 +80,9 @@ body {
 
 #btnactivity {
     border-radius: 4px;
-    border: solid 2px #BCFF05;
-    background-color: #BCFF05;
-    color: #5C3A27;
+    border: solid 2px #5C3A27;
+    background-color: #5C3A27;
+    color: #F3EFCD;
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     text-transform: uppercase;
@@ -90,8 +90,14 @@ body {
     width: 48%;
 }
 
+#btnactivity:hover {
+    color: #5C3A27;
+    background-color: #BCFF05;
+    border: solid 2px #BCFF05;
+}
+
 #activity:focus, #btnactivity:focus {
-    border: solid 2px #5C3A27;
+    border: solid 2px #D6BCA2;
 }
 
 .input-row {
@@ -175,6 +181,61 @@ a {
 
 a:hover {
     color: #F3EFCD;
+}
+
+/* ------------------------------------------------------ form */
+
+.contact-form {
+    max-width: 70%;
+    margin-left: 15%;
+    margin-bottom: 20px;
+}
+
+.contact-form h1 {
+    text-align: center;
+    font-family: 'Karla', sans-serif;
+    font-size: 28px;
+    font-weight: 400;
+    color: #5C3A27;
+    text-transform: uppercase;
+}
+
+.contact-form label, .contact-form .text-input {
+    font-family: 'Roboto', sans-serif;
+    color: #5C3A27;
+}
+
+.contact-form p {
+    text-align: center;
+}
+
+.text-input, .submit-button {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+}
+
+.text-input {
+    border: 2px solid #D6BCA2;
+    border-radius: 5px;
+    background-color: #D6BCA2;
+}
+
+.text-input:hover {
+    border: solid 2px #5C3A27;
+}
+
+.submit-button {
+    border-radius: 5px;
+    background-color: #5C3A27;
+    border: none;
+    color: #F3EFCD;
+    text-transform: uppercase;
+}
+
+.submit-button:hover {
+    background-color: #BCFF05;
+    color: #5C3A27;
 }
 
 /* ---------------------------------------------------- footer */
