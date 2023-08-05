@@ -65,6 +65,12 @@ body {
     margin-bottom: 20px;
 }
 
+.tagline p {
+    font-family: 'Roboto', sans-serif;
+    color: #5C3A27;
+    text-align: center;
+}
+
 /* -------------------------------------------------- criteria */
 
 #activity {
@@ -191,7 +197,7 @@ a:hover {
     margin-bottom: 20px;
 }
 
-.contact-form h1 {
+.contact-form h1, .thank-you h2 {
     text-align: center;
     font-family: 'Karla', sans-serif;
     font-size: 28px;
@@ -238,6 +244,19 @@ a:hover {
     color: #5C3A27;
 }
 
+/* -------------------------------------------- thank_you.html */
+
+.thank-you h2 {
+    margin-bottom: 20px;
+}
+
+.thank-you p {
+    text-align: center;
+    color: #5C3A27;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 20px;
+}
+
 /* ---------------------------------------------------- footer */
 
 footer {
@@ -267,6 +286,10 @@ footer {
 
 .social-links a:hover {
     color: #F3EFCD;
+}
+
+.thank-you-footer {
+
 }
 
 /* --------------------------------------------- media queries */
