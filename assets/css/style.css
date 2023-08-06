@@ -69,6 +69,7 @@ body {
     font-family: 'Roboto', sans-serif;
     color: #5C3A27;
     text-align: center;
+    margin: 0px 10% 20px 10%;
 }
 
 /* -------------------------------------------------- criteria */
@@ -191,6 +192,20 @@ a:hover {
 
 /* ------------------------------------------ inspiration.html */
 
+.inspo-tag {
+    text-align: center;
+    color: #5C3A27;
+    margin-bottom: 20px;
+}
+
+.inspo-tag h2 {
+    margin-bottom: 20px;
+}
+
+.inspo-tag p {
+    margin-bottom: 0px;
+}
+
 .inspo-card {
     background-color: #D6BCA2;
     border-radius: 4px;
@@ -207,6 +222,7 @@ a:hover {
 
 .inspo-card h2, .inspo-card p {
     padding-left: 15px;
+    padding-right: 15px;
     color: #5C3A27;
 }
 
@@ -361,6 +377,9 @@ footer {
 @media only screen and (max-width: 576px) {
     .navbar-toggler {
         padding-left: 20px;
+    }
+    .tagline p {
+        margin: 0px 0px 20px 0px;
     }
     #activity, #btnactivity {
         width: 100%;
