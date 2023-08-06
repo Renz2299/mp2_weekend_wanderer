@@ -166,18 +166,166 @@ Roboto will be used for paragraph text, links and the footer. The following scre
 During site development GitHub was used to manage versions of each file, commits were made often and consisted of small bite-sized edits to individual features so it would be easier to roll back the site to a previous version if required. Details of the commits can be found here:
 
 ## Site Development & Features
+
 ### Universal Site Elements
 
+#### External Links Used Across Site
+Bootstrap CSS framework was used throughout the site to aid in developing a responsive, well-laid out website. This framework allowed the main structure of the site to be developed quickly, therefore more time could be spent focussing on the interactivity of the map, fine tuning elements and appropriately styling the site.
+
+Font Awesome icons were used for the social links in the footer.
+
+Two Google fonts were used throughout the site: Karla and Roboto. Details on the choice of these fonts can be found in the [Typography](#typography) section above.
+
+#### Header & Main Navigation
+The header of the site consists of the Weekend Wanderer logo on the left and the primary site navigation on the right. The background is dark green and the content is off-white but turns bright green when hovered to the active element. The header sites on top of the page content, therefore all page content has a top padding of 7em so nothing is hidden behind the header.
+
+On screen sizes smaller than 768px wide the main navigation will become a hamburger button that can be toggled to show the navigation in a dropdown format.
+
+Site header on screens 768px and above:
+![alt text](assets/img/readme_imgs/header_992px.png "Title")
+
+Site header on screens below 768px:
+![alt text](assets/img/readme_imgs/header_767px.png "Title")
+
+#### Footer
+The footer consists of copyright information on the left and social links on the right all on a dark green background.
+
+On screen sizes below 576px wide, the two columns of content stack and float on the right-hand side of the footer.
+
+Site footer on screens 576px and above:
+![alt text](assets/img/readme_imgs/footer_768px.png "Title")
+
+Site footer on screens below 576px:
+![alt text](assets/img/readme_imgs/footer_575px.png "Title")
+
 ### Explore (index.html)
+The Explore page begins with a tagline and instructions describing how to use the interactive map to find places to explore nearby.
+
+![alt text](assets/img/readme_imgs/tagline.png "Title")
+
+Beneath the tagline and instructions are the input criteria where the user can select a type of place they would like to search for from four options: 'Hikes', 'Nature Reserves', 'Beaches', and 'Landmarks'. They can then press submit to see 20 of the closest places of that type on the map below.
+
+The input criteria consists of two bootstrap columns within a row so that on smaller screen sizes the criteria will stack, making it easier to use.
+
+Input criteria on screens 576px and above:
+![alt text](assets/img/readme_imgs/criteria_768px.png "Title")
+
+Input criteria on screens below 576px:
+![alt text](assets/img/readme_imgs/criteria_576px.png "Title")
+
+The interactive map is the main focus of the Explore page and is in the centre of the page. It uses HTML5 geolocation to locate the user (if geolocation has been denied, it defaults to Sydney, Australia) and upon selecting a type of place and pressing 'Submit' the map will show the top 20 closest results for the chosen place type and zoom the map to fit the markers within it's bounds. It does this using the getNearbyPlaces function and the createMarkers function.
+
+On screens over 768px wide, the padding either side of the map is set to 10% so that it doesn't fill all the blank space on the page and keeps the information digestible to the user.
+
+There are four different marker icons, one for each type of place the user can select. 'If' and 'else if' statements are used in map.js to select the different marker icons depending on what place type has been selected.
+
+Interactive map on screens 768px wide:
+![alt text](assets/img/readme_imgs/map_768px.png "Title")
+
+To the right are the four different marker icons:
+![alt text](assets/img/hiking2.png "Title")
+![alt text](assets/img/forest2.png "Title")
+![alt text](assets/img/beach_icon.png "Title")
+![alt text](assets/img/tower.png "Title")
+
+The final element of the Explore page is the place card that appears under the map when the user clicks on one of the markers for more details.
+
+The place details are shown in two bootstrap columns, with the photo on the left and the name, rating, address and website link on the right. This information is retrieved from the Google Places library using the getDetails function.
+
+Place card on screens 768px and above:
+![alt text](assets/img/readme_imgs/place_card_992px.png "Title")
+
+Place card on screens below 576px:
+![alt text](assets/img/readme_imgs/place_card_575px.png "Title")
 
 ### Inspiration (inspiration.html)
+The Inspiration page begins with a tagline and brief description of the page.
+
+![alt text](assets/img/readme_imgs/inspo_tag_992px.png "Title")
+
+Below the tagline are cards containing brief information about different places that adventure guides have been created for. The consist of an image, the name of the place, a short paragraph about the place and a button that links the user to the specific adventure guide for that place. The idea behind this page was that more guides could be added (similar to a travel blog) so user's could come to this page for inspiration about new places they can explore.
+
+![alt text](assets/img/readme_imgs/inspo_card_992px.png "Title")
 
 ### Contact (contact.html)
+The contact page consists of a single contact form for users to send enquiries about the site content and submit their own adventure guides for the Inspiration page.
+
+The form contains fields for name, email address, message and an attachment. It is centred on the page at 70% of the screen width.
+
+Contact form on screens 1200px wide:
+![alt text](assets/img/readme_imgs/contact_form_1200px.png "Title")
+
+Contact form on screens below 576px:
+![alt text](assets/img/readme_imgs/contact_form_576px.png "Title")
+
+Upon completion of the contact form, the user is directed to a Thank You page, indicating their details have been recorded. This page still contains the site header, navigation bar and footer, meaning the user never leaves the site and can still return to the other site pages.
+
+The Thank You page contains the following text:
+![alt text](assets/img/readme_imgs/thank_you.png "Title")
 
 ## Pre-Deployment Testing
+
+01/08/23:
+- Map tested during development
+- Header & footer responsiveness tested whilst applying padding
+- Splitting card details into two columns for better appearance - Lots of js editing was required (adding two new variables and changing the while loops to remove all children of the new variables)
+
+03/08/23:
+- Allowed users to search for different types of places
+- Old markers deleted
+- Map bounds reset
+- Hiker icon added
+
+04/03/23:
+- Set different markers for each user input
+- Set specific user options in dropdown
+- Started contact.html
+
+05/08/23:
+- Finished contact.html
+- Started & finished thank_you.html
+- Started & finished inspiration.html
+
+06/08/23:
+- Started guide page
+
+### Responsiveness
+
+### Browser Compatibility
+
+### Bug Fixes
+- Location found window doesn’t hide on search
+- Responsiveness fixes
+- Thank-you footer not at bottom
+- Inspo imgs need cropping to size
+
+### Code Validation
+
+### User Story Testing
+
+### Feature Testing
 
 ## Deployment
 
 ## Post-Deployment Testing
 
+### Responsiveness
+
+### Browser Compatibility
+
+### Bug Fixes
+
+### Lighthouse Testing
+
+### Feature Testing
+
+### Future Improvements
+- Style map
+- Turn website link into button
+- Adventure guides a mix of types of poi
+
 ## Credits & Acknowledgements
+Map Icons credit: https://mapicons.mapsmarker.com/markers/sports/nature-sports/hiking/?fbclid=IwAR0-2GqPnfXBoB_sRXuvAz-dREf3_LEz4HCJXUz_Ohz2_T7LWEm2Z3LP34A
+oxford.jpg = Ben Seymour on Unsplash
+bath.jpg = Alex Atudosie on Unsplash
+falmouth.jpg = Kate Joyce on Unsplash
