@@ -135,7 +135,7 @@ body {
 
 /* ------------------------------------------------------ card */
 
-#card {
+#card, #guide-card {
     height: 100%;
     background-color: #D6BCA2;
     overflow-y: hidden;
