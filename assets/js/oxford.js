@@ -51,6 +51,7 @@ function createMarkers(places) {
     places.forEach(place => {
         let marker = new google.maps.Marker({
             position: place.geometry.location,
+            icon: 'assets/img/tower.png',
             map: map,
             title: place.name
         });

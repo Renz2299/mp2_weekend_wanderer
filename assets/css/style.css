@@ -251,13 +251,36 @@ a:hover {
     border: solid 2px #D6BCA2;
 }
 
-/* ------------------------------------------------- guide map */
+/* ------------------------------------------------ guide page */
+
+.guide-img {
+    width: 100%;
+    height: 378px;
+}
+
+.guide-tag {
+    margin: 20px 0px 20px 0px;
+}
+
+.guide-tag h2 {
+    font-family: 'Karla', sans-serif;
+    font-size: 28px;
+    font-weight: 400;
+    color: #5C3A27;
+    text-align: center;
+}
+
+.guide-tag p {
+    font-family: 'Roboto', sans-serif;
+    color: #5C3A27;
+    text-align: center;
+    margin: 0px 10%;
+}
 
 #guide-map {
     width: 100%;
     height: 500px;
     border-radius: 4px;
-    margin: 20px 0px 16px 0px;
 }
 
 h3 {
