@@ -218,13 +218,18 @@ body {
     margin-bottom: 20px;
 }
 
-.inspo-card img {
+.inspo-img {
     width: 100%;
-    height: 300px;
+    height: auto;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
     padding: 15px;
 }
 
-.inspo-card h2, .inspo-card p {
+.inspo-card h2 {
+    font-family: 'Karla', sans-serif;
+    text-transform: uppercase;
     padding-left: 15px;
     padding-right: 15px;
     color: #FFFFFF;
@@ -232,6 +237,9 @@ body {
 
 .inspo-card p {
     font-family: 'Roboto', sans-serif;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: #FFFFFF;
 }
 
 #inspo-btn {
