@@ -3,6 +3,9 @@
 
 body {
     background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .logo {
@@ -164,7 +167,7 @@ body {
     padding-right: 15px;
 }
 
-.place, h2 {
+.place, h3 {
     font-family: 'Karla', sans-serif;
     color: #FFFFFF;
     text-transform: uppercase;
@@ -312,9 +315,10 @@ h3 {
     text-transform: uppercase;
 }
 
-.contact-form label, .contact-form .text-input {
+.contact-form label {
     font-family: 'Roboto', sans-serif;
-    color: #FFFFFF;
+    color: #5C3A27;
+    text-transform: uppercase;
 }
 
 .contact-form p {
@@ -331,9 +335,11 @@ h3 {
     border: 2px solid #476E01;
     border-radius: 5px;
     background-color: #476E01;
+    font-family: 'Roboto', sans-serif;
+    color: #FFFFFF;
 }
 
-.text-input:hover {
+.text-input:hover, .text-input:focus {
     border: solid 2px #7FFF30;
 }
 
@@ -368,6 +374,7 @@ footer {
     background-color: #476E01;
     border-radius: 10px 10px 0px 0px;
     padding: 20px 30px 10px 30px;
+    margin-top: auto;
 }
 
 #footer-details P {
@@ -395,10 +402,13 @@ footer {
 
 /* --------------------------------------------- media queries */
 
-@media only screen and (max-width: 576px) {
-    .navbar-toggler {
-        padding-left: 20px;
+@media only screen and (max-width: 420px) {
+    .logo {
+        font-size: 20px;
     }
+}
+
+@media only screen and (max-width: 576px) {
     .tagline p {
         margin: 0px 0px 20px 0px;
     }

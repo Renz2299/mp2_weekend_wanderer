@@ -200,7 +200,7 @@ function showPanel(placeResult) {
     }
   
     // Add place details with formatting
-    let name = document.createElement('h2');
+    let name = document.createElement('h3');
     name.classList.add('place');
     name.textContent = placeResult.name;
     infoPanelDetails.appendChild(name);
