@@ -111,13 +111,13 @@ Finally, the contact page consists of a single, simple form where users can prov
 
 ## Design Choices
 ### Colours
-From looking at trends and current outdoor brands on the market, green and brown appear to be recurring colours used within the industry due to their resemblence of the outdoors. I used Adobe Colour to play around with combinations of different greens and browns until I came to a colour scheme that felt fitting. Here is the final colour scheme consisting of two shades of green, one shade of off-white and, two shades of brown.
+From looking at trends and current outdoor brands on the market, green and brown appear to be recurring colours used within the industry due to their resemblence of the outdoors. I used Adobe Colour to play around with combinations of different greens and browns until I came to a colour scheme that felt fitting. Here is the final colour scheme consisting of two shades of green, white, one shade of grey and one shade of brown.
 
 ![alt text](assets/img/readme_imgs/colour_scheme_final.png "Title")
 
 This colour scheme was tested using Adobe's accessibility tools to check how well the colours could be layered.
 
-The greens were tested to ensure they could be used together and the dark brown was tested on the three possible background colours to check it would work as a text colour. The only combination that won't work is the dark brown and dark green.
+All colours were tested on a white background to check if they could be used as text and if white would be suitable site background. The light green and the grey do not work as text on a white background, therefore will need alternative colour in between if used as text.
 
 ![alt text](assets/img/readme_imgs/colour_check_1.png "Title")
 
@@ -127,15 +127,25 @@ The greens were tested to ensure they could be used together and the dark brown 
 
 ![alt text](assets/img/readme_imgs/colour_check_4.png "Title")
 
+The light green and the grey were tested on the dark green and brown backgrounds to establish if either colour could work as a header/ footer background colour. It was also established that the brown and dark green could not be layered due to their contrast ratio.
+
+![alt text](assets/img/readme_imgs/colour_check_5.png "Title")
+
+![alt text](assets/img/readme_imgs/colour_check_6.png "Title")
+
+![alt text](assets/img/readme_imgs/colour_check_7.png "Title")
+
+![alt text](assets/img/readme_imgs/colour_check_8.png "Title")
+
 #### Hi-Fi Wireframes
 
 After testing the five colours together for compatibility, they were implemented to the wireframes, different colours were tried in different positions until they felt correct. Here are the colour assignments and final hi-fi wireframes.
 
-Dark Green #476E01 - Header & Footer Background
-Light Green #BCFF05 - Buttons & Links
-Dark Brown #5C3A27 - Text Colour
-Light Brown #D6BCA2 - Text Fields & Section Backgrounds
-Off-White #F3EFCD - Site Background, Hovers & Clicked Links
+- Dark Green #476E01 - Header & Footer Background
+- Light Green #7FFF30 - Hovers & Clicked Links
+- White #FFFFFF - Site Background, Text on coloured Backgrounds
+- Grey #F0F0F0 - Buttons
+- Dark Brown #5C3A27 - Text Colour
 
 ![alt text](assets/img/readme_imgs/wireframes_mk3-01.png "Title")
 
@@ -265,45 +275,161 @@ The Thank You page contains the following text:
 
 ## Pre-Deployment Testing
 
-01/08/23:
-- Map tested during development
-- Header & footer responsiveness tested whilst applying padding
-- Splitting card details into two columns for better appearance - Lots of js editing was required (adding two new variables and changing the while loops to remove all children of the new variables)
+### Testing During Development
 
-03/08/23:
-- Allowed users to search for different types of places
-- Old markers deleted
-- Map bounds reset
-- Hiker icon added
+Testing was carried out during development to check features were working as expected and to identify issues immediately so they could be rectified. This was done using the Live Server extension for VSCode.
 
-04/03/23:
-- Set different markers for each user input
-- Set specific user options in dropdown
-- Started contact.html
+The interactive map on index.html was tested each time new section of code was added (eg. a new function) to check the new code was working as well as allow myself to better understand the code I was adding as I was using a lot of trial and error to get the code working properly since JavaScript is a new language to me.
 
-05/08/23:
-- Finished contact.html
-- Started & finished thank_you.html
-- Started & finished inspiration.html
+Screenshot of initial interactive map:
+![alt text](assets/img/readme_imgs/.png "Title")
 
-06/08/23:
-- Started guide page
+Once the input criteria was added to the interactive map, through testing I found that the markers don't refresh if the user searches again irrespective of the place type. This took a lot of trial and error to resolve, in the end required a new function called deleteMarkers.
+
+Screenshot to show deleteMarkers function:
+![alt text](assets/img/readme_imgs/.png "Title")
+
+After resolving the duplicate markers issue, the issue of the map bounds not resetting upon a new search was discovered. This meant implementing another action after the deleteMarkers function is called to reset the map bounds before resetting the search criteria.
+
+Screenshot to show map bounds reset:
+![alt text](assets/img/readme_imgs/.png "Title")
+
+The header and footer were tested whilst the styling was being applied to ensure the margins & padding were correct on all screen sizes. This allowed a minor padding issue on the mobile screen menu to be picked up during development.
+
+![alt text](assets/img/readme_imgs/navbar_toggler_before.png "Title")
+![alt text](assets/img/readme_imgs/navbar_toggler_after.png "Title")
+
+By testing responsiveness during development, this also allowed an issue with the place card image to be found. The original layout had the image above the details on the card on all screens, which meant on larger screens if the image retrieved from the places library was portrait it would end up severely stretched. Therefore, bootstrap columns were introduced to the place card so the image and details would appear in two columns side-by-side and could stack on smaller screens, keeping the image at a relatively normal aspect ratio.
+
+Screenshots of place card columns before and after
+![alt text](assets/img/readme_imgs/.png "Title")
+![alt text](assets/img/readme_imgs/.png "Title")
+
+### Bug Fixes
+
+The site was initially tested on two screen sizes using Chrome developer tools, one mobile screen and one tablet screen. This was to aid in quickly resolving the main bugs related to responsiveness across the site before testing on a range of different screen sizes when more intricate fixes may be required.
+
+#### Site Tested on iPhone XR
+![alt text](assets/img/readme_imgs/pre_d_response_testing_iphone_xr.png "Title")
+
+#### Site Tested on iPad Pro
+![alt text](assets/img/readme_imgs/pre_d_response_testing_ipad_mini.png "Title")
+
+From this testing, I found quite a lot of minor bugs, mainly to do with the styling.
+
+On mobile screens the navbar toggler sits underneath the logo, instead the logo should stack and the toggler remain on the right of the navbar.
+
+To resolve this issue, I initially tried to make the logo text stack on smaller screens, however this proved quite difficult. Therefore, I found the point at which the toggler stacked under the logo (419px) and created a media query for screens beneath 420px wide to set the logo font-size to 20px. This now means the toggler will only stack on screens beneath 320px wide.
+
+![alt text](assets/img/readme_imgs/logo_toggler_fix_414px.png "Title")
+
+The footer isn't sticky to the bottom of the page, therefore on pages with less content than the screen height or on widescreens the footer often isn't at the bottom of the screen.
+
+To resolve this problem I incorporated some CSS flexbox code to set the body to flex it's items vertically and setting the footer margin-top to auto meaning it will fill the whole page since it's the last element in the html.
+
+![alt text](assets/img/readme_imgs/footer_fix_414px.png "Title")
+
+The inspiration page on mobile screens doesn't have any left or right margins, making the content fill the whole width of the screens.
+
+This was resolved by removing the inspo-card class from the bootstrap columns that the content was within and adding it to row div around each element.
+
+![alt text](assets/img/readme_imgs/inspo_fix_414px.png "Title")
+
+The images on the inspiration cards aren't optimised for the space they are filling on the page. They need reducing in file size and cropping to fit the space they are intended on the site. Also, the text on these place cards needs exchanging for site-specific text rather than lorem ipsum placeholder text.
+
+This was resolved by editing the images to the same size and resolution, which is just big enough to show good image quality on screens above 1400px. And then adding flexbox css so the image would shrink rather than stretch or condense with the differing screen sizes.
+
+![alt text](assets/img/readme_imgs/inspo_img_fix_414px.png "Title")
+
+The geolocation status window doesn't disappear once the user has searched for a place type.
+
+The colour of the markers on the map doesn't suit the colour theme, therefore need changing to one of the green colours from the theme.
+
+The web link being too long - Could be changed to a button
+
+The above three issues were decided not major and would be resolved after pre & post deployment testing was finished to not hinder resolving true issues with the site and keep to the project deadline.
+
+- Place card img doesn't fill space between 576px & 768px - Maybe make columns stack at 768px instead
+- Inspo imgs need cropping to size - One for card & one for guide
+- Add favicon
+
+Finally, the thank-you page has index.html set as it's active page, this needs removing.
+
+This was an easy fix and just required removing the active class from the nav-link html.
 
 ### Responsiveness
 
+After completing the first round of responsiveness testing, the site was tested on the following screen sizes using Chrome developer tools.
+
+Screen Width | | | | | Device | | | | |
+---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---:
+| | Galaxy S9+ (320px) | iPhone 6/7/8 (375px) | iPhone XR (414px) | iPad Mini (768px) | iPad Air (820px) | Surface Pro 7 (912px) | iPad Pro (1024px) | Desktop (1201px) | Desktop (2000px)
+<= 576px | Good | Good | Good | NA | NA | NA | NA | NA | NA
+576px < >= 992px | NA | NA | NA | Good | Good | Good | NA | NA | NA
+992px < | NA | NA | NA | NA | NA | NA | Good | Good | Good
+Links/ URLs work | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes
+Images work | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes
+Renders as expected | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes
+
 ### Browser Compatibility
 
-### Bug Fixes
-- Location found window doesn’t hide on search
-- Responsiveness fixes
-- Thank-you footer not at bottom
-- Inspo imgs need cropping to size
+| | Browser | | | Notes
+:--- | :--- | --- | --- | ---
+| | Chrome | Edge | Firefox
+Intended Appearance? | Good | Good | Good | Site appears as expected on all browsers tested
+Intended Responsiveness? | Good | Good | Good | Site responds as expected on all browsers tested
 
 ### Code Validation
 
+| | Validations | Notes
+---: | --- | ---
+HTML | Checked on: https://validator.w3.org/ | **Errors:** Missing favicon. Images don't have alt attributes. The ID: 'inspo-btn' has been re-used. **Warnings:** Sections don't have headers.
+CSS | Checked on: https://jigsaw.w3.org/css-validator/ | No errors or warnings found.
+JavaScript | Checked on: https://jshint.com/ | **Errors:** Missing '()' on line 15 invoking a constructor. Missing ';' on line 83 and 138. 'button' was an unused variable.
+
+The above errors were resolved and committed all at once to github. A favicon was added, the ID: 'inspo-btn' was changed to a class and the JavaScript syntax issues were resolved.
+
 ### User Story Testing
 
+User Story | Testing
+--- | ---
+As a user I want to find new, highly rated areas to explore nearby. | On the Explore page, select the type of place you are looking for and press 'Submit'. Nearby places of that type will be presented on the map. You can click any of them to see what their star rating out of 5 is.
+As a user I want to find recommendations for hiking near other areas to help plan future trips. | On the Inspiration page scroll through the list of places that have adventure guides, they contain recommendations for hiking and other activities.
+As a user I want to read real people's reviews of near and far outdoor areas. | On the Explore page, once a place type has been selected and the map is showcasing the nearby places, by clicking on a place you can see it's star rating and a link to a website where reviews can be found. Also, on the Inspiration page you can read people's reviews of a certain place.
+As a user I want to find a suitable place for an active getaway. | On the Inspiration page, you can scroll through a list of places with adventure recommendations to find you next getaway.
+As a user I want to be able to ask questions about the places shown on the site. | On the Contact page, you can ask questions as well as submit your own recommendations for adventure guides.
+
 ### Feature Testing
+
+Feature | Action | Effect
+--- | --- | ---
+Logo (all pages) | Hover over | Cursor changes to a pointer, colour changes to #7FFF30
+| | Click | Direct users to index.html
+Site Navigation (<768px wide) (all pages) | Hover over toggler | Cursor changes to a pointer, colour changes to #7FFF30
+| | Click toggler | Opens dropdown navigation menu
+| | Hover over page | Cursor changes to a pointer, colour changes to #7FFF30
+| | Click page | Directs user to selected page
+Site Navigation (>=768px wide) (all pages) | Hover over page | Cursor changes to a pointer, colour changes to #7FFF30
+| | Click page | Directs user to selected page
+Place Type Criteria | Hover over | Bug: A hover needs adding to this feature to provide suitable feedback to the user
+| | Click | Opens a dropdown selection of place types
+| | Hover over | Highlights the place type
+| | Click | Selects the place type
+Submit Place Type | Hover over | Cursor changes to a pointer, colour changes to #7FFF30
+| | Click | Shows nearby places of that type on the map below
+Map (index.html, oxford.html, bath.html & falmouth.html) | Click & Drag | Pan around the map
+| | Ctrl & Scroll | Zoom in or out of the map
+Map Markers (index.html, oxford.html, bath.html & falmouth.html) | Click | An info-window appears above the marker and a place card is opened beneath the map
+Place Card | Hover over link | Cursor changes to a pointer, colour changes to #7FFF30
+| | Click | Directs user to external webpage for that place. Bug: This doesn't open in a new tab
+Footer Links (all pages) | Hover over | Cursor changes to a pointer, colour changes to #7FFF30
+| | Click | Opens selected social page in a new tab
+Inspiration Card Button | Hover over | Cursor changes to a pointer, colour changes to #7FFF30
+| | Click | Directs user to selected adventure guide
+Contact Form | Hover over data fields | Cursor changes to a text cursore, border colour changes to #7FFF30
+| | Click in data field | Border changes to black, typing cursor appears in data field
+| | Hover over 'SUBMIT' | Cursor changes to a pointer, colour changes to #7FFF30
+| | Click 'SUBMIT' | If data fields filled in correctly: Directs user to thank you page. If data fields not filled in correctly: Alerts user which field is missing or has incorrect data
 
 ## Deployment
 
@@ -323,6 +449,7 @@ The Thank You page contains the following text:
 - Style map
 - Turn website link into button
 - Adventure guides a mix of types of poi
+- Use flexbox instead
 
 ## Credits & Acknowledgements
 Map Icons credit: https://mapicons.mapsmarker.com/markers/sports/nature-sports/hiking/?fbclid=IwAR0-2GqPnfXBoB_sRXuvAz-dREf3_LEz4HCJXUz_Ohz2_T7LWEm2Z3LP34A
