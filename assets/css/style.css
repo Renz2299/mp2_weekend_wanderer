@@ -102,7 +102,7 @@ body {
     width: 48%;
 }
 
-#btnactivity:hover {
+#btnactivity:hover, #activity:hover {
     background-color: #7FFF30;
     border: solid 2px #7FFF30;
 }
