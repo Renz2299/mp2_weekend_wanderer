@@ -1,7 +1,3 @@
-onload = function() {
-    console.log('Hello, World!');
-}
-
 // The following code was created following a Google codelab: https://developers.google.com/codelabs/maps-platform/google-maps-nearby-search-js#0
 
 let pos;
@@ -16,7 +12,7 @@ let infoPanelDetails;
 
 function initMap() {
     mapBounds = new google.maps.LatLngBounds();
-    infoWindow = new google.maps.InfoWindow;
+    infoWindow = new google.maps.InfoWindow();
     currentInfoWindow = infoWindow;
 
     // Assigns 'card', 'photo' and 'details' from index.html to infoPanel variables
@@ -74,8 +70,6 @@ function handleLocationError(browserHasGeolocation, infoWindow) {
     getNearbyPlaces(pos);
 }
 
-let button = document.getElementById('btnactivity');
-
 let activity = document.getElementById('activity');
 
 var userInput;
@@ -84,7 +78,7 @@ var iconBase;
 
 function changeInput() {
   userInput = activity.options[activity.selectedIndex].value;
-  deleteMarkers()
+  deleteMarkers();
   mapBounds = new google.maps.LatLngBounds(null);
   if (userInput === 'hike') {
     iconBase = "assets/img/hiking2.png";
@@ -139,7 +133,7 @@ function createMarkers(results) {
   
       // Only fetch place details when user clicks on a marker
       service.getDetails(request, (placeResult, status) => {
-        showDetails(placeResult, marker, status)
+        showDetails(placeResult, marker, status);
       });
     });
       
