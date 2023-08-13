@@ -450,9 +450,32 @@ The site was deployed on GitHub Pages using the following steps:
 
 ### Responsiveness
 
+Screen Width | | | | | Device | | | | |
+---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---:
+| | Galaxy S9+ (320px) | iPhone 6/7/8 (375px) | iPhone XR (414px) | iPad Mini (768px) | iPad Air (820px) | Surface Pro 7 (912px) | iPad Pro (1024px) | Desktop (1201px) | Desktop (2000px)
+<= 576px | Good | Good | Good | NA | NA | NA | NA | NA | NA
+576px < >= 992px | NA | NA | NA | Good | Good | Good | NA | NA | NA
+992px < | NA | NA | NA | NA | NA | NA | Good | Good | Good
+Links/ URLs work | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes
+Images work | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes
+Renders as expected | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes
+
 ### Browser Compatibility
 
+| | Browser | | | | Notes
+:--- | :--- | --- | --- | --- | ---
+| | Chrome | Edge | Firefox | Safari
+Intended Appearance? | Good | Good | Good | Good (only tested on mobile)| Site appears as expected on all browsers tested
+Intended Responsiveness? | Good | Good | Good | Good (only tested on mobile) | Site responds as expected on all browsers tested
+Geolocation Handling | Good | Good | Good | Good | Site handles geolocation as intended on all browsers tested
+
 ### Bug Fixes
+
+From post-deployment testing a small number of bugs were still found and needed to be resolved.
+
+1. HTML pages that don't require JavaScript or the Maps API still had the script tags at the bottom of the page. This was removed to decrease loading times of those pages.
+
+2. The console.log function was still left at the top of the guide page's JavaScript, this was also removed to decrease loading times of those pages.
 
 ### Lighthouse Testing
 
@@ -463,6 +486,7 @@ The site was deployed on GitHub Pages using the following steps:
 - Turn website link into button
 - Adventure guides a mix of types of poi
 - Use flexbox instead
+- Jazz up the weekend wanderer logo
 
 ## Credits & Acknowledgements
 Map Icons credit: https://mapicons.mapsmarker.com/markers/sports/nature-sports/hiking/?fbclid=IwAR0-2GqPnfXBoB_sRXuvAz-dREf3_LEz4HCJXUz_Ohz2_T7LWEm2Z3LP34A

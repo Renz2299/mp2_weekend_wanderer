@@ -1,7 +1,3 @@
-onload = function() {
-    console.log('Hello, Oxford!');
-}
-
 let pos;
 let map;
 let mapBounds;
