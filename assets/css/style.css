@@ -266,8 +266,12 @@ body {
 /* ------------------------------------------------ guide page */
 
 .guide-img {
+    margin-top: 56px;
     width: 100%;
-    height: 378px;
+    height: auto;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
 }
 
 .guide-tag {
@@ -301,11 +305,6 @@ h3 {
     font-size: 20px;
     color: #5C3A27;
     text-transform: uppercase;
-}
-
-#guide-map p {
-    font-family: 'Roboto', sans-serif;
-    color: #476E01;
 }
 
 /* ------------------------------------------------------ form */
