@@ -426,12 +426,25 @@ Footer Links (all pages) | Hover over | Cursor changes to a pointer, colour chan
 | | Click | Opens selected social page in a new tab
 Inspiration Card Button | Hover over | Cursor changes to a pointer, colour changes to #7FFF30
 | | Click | Directs user to selected adventure guide
-Contact Form | Hover over data fields | Cursor changes to a text cursore, border colour changes to #7FFF30
+Contact Form | Hover over data fields | Cursor changes to a text cursor, border colour changes to #7FFF30
 | | Click in data field | Border changes to black, typing cursor appears in data field
 | | Hover over 'SUBMIT' | Cursor changes to a pointer, colour changes to #7FFF30
 | | Click 'SUBMIT' | If data fields filled in correctly: Directs user to thank you page. If data fields not filled in correctly: Alerts user which field is missing or has incorrect data
 
+The only bug that came from this testing was the website links for a place did not open in a new tab. Therefore, to resolve this I added a setAttribute to the weblink variable to set the target of the link to _blank.
+
 ## Deployment
+
+The site was deployed on GitHub Pages using the following steps:
+1. Make sure the repository is Pulbic.
+2. From the repository, go to the 'Settings' tab.
+3. Go to 'Pages'.
+4. Select 'Deploy from a branch' as the Source.
+5. Select 'main' and '/root' as the Branch.
+6. Click Save.
+7. View the deployed site using the 'Visit site' button at the top of the page.
+
+![alt text](assets/img/readme_imgs/deployment_steps.png "Title")
 
 ## Post-Deployment Testing
 
