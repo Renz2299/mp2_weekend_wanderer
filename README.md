@@ -479,7 +479,45 @@ From post-deployment testing a small number of bugs were still found and needed 
 
 ### Lighthouse Testing
 
-### Feature Testing
+Lighthouse testing was carried out on each page of the site using Chrome Developer Tools. After each text, relevant changes were made and the site was re-deployed.
+
+**Index.html**
+
+The first test of index.html came back with good results, however they could be slightly improved. The performance and best practices rating couldn't be further improved since on load the site has an error because the initMap function doesn't have any criteria, this can only be resolved once the user inputs the place type they are searching for. The SEO rating, however could be improved by providing a description for the meta tag in the page head.
+
+![alt text](assets/img/readme_imgs/index_lighthouse_1.png "Title")
+
+After another lighthouse test, index.html came back with an improved rating. The SEO rating is now 100 and this change also increased the performance rating.
+
+![alt text](assets/img/readme_imgs/index_lighthouse_2.png "Title")
+
+**Inspiration.html**
+
+The first test of inspiration.html came back with a perfect lighthouse score and had this cool fireworks animation layered over it!
+
+![alt text](assets/img/readme_imgs/inspiration_lighthouse_1.png "Title")
+
+**Contact.html**
+
+The first test of contact.html also came back with a perfect lighthouse score.
+
+![alt text](assets/img/readme_imgs/contact_lighthouse_1.png "Title")
+
+**Oxford.html, Bath.html & Falmouth.html**
+
+The first test of the guide pages came back with mixed results. The performance scores were slightly lower for oxford.html and falmouth.html, however was almost perfect for bath.html. I figured this was down to the main image resolution however, they are supposed to be the same across the three pages. If there is time at the end of the project I will look further into this and see what I can do to improve those scores.
+
+Oxford.html:
+
+![alt text](assets/img/readme_imgs/oxford_lighthouse_1.png "Title")
+
+Bath.html:
+
+![alt text](assets/img/readme_imgs/bath_lighthouse_1.png "Title")
+
+Falmouth.html:
+
+![alt text](assets/img/readme_imgs/falmouth_lighthouse_1.png "Title")
 
 ### Future Improvements
 - Style map
