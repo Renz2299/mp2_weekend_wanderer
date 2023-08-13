@@ -212,6 +212,7 @@ function showPanel(placeResult) {
       let websitePara = document.createElement('p');
       let websiteLink = document.createElement('a');
       let websiteUrl = document.createTextNode(placeResult.website);
+      websiteLink.setAttribute('target', '_blank');
       websiteLink.appendChild(websiteUrl);
       websiteLink.title = placeResult.website;
       websiteLink.href = placeResult.website;
