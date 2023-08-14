@@ -9,6 +9,11 @@ let service;
 let infoPanel;
 let infoPanelPhoto;
 let infoPanelDetails;
+let activity = document.getElementById('activity');
+let markers = [];
+
+var userInput;
+var iconBase;
 
 function initMap() {
     mapBounds = new google.maps.LatLngBounds();
@@ -70,12 +75,6 @@ function handleLocationError(browserHasGeolocation, infoWindow) {
     getNearbyPlaces(pos);
 }
 
-let activity = document.getElementById('activity');
-
-var userInput;
-
-var iconBase;
-
 function changeInput() {
   userInput = activity.options[activity.selectedIndex].value;
   deleteMarkers();
@@ -111,8 +110,6 @@ function nearbyCallback(results, status) {
     }
 }
 
-let markers = [];
-
 // Creates markers for results and zooms map to fit
 function createMarkers(results) {
   results.forEach(place => {
@@ -123,7 +120,6 @@ function createMarkers(results) {
       title: place.name
     });
     
-      
     // Adds click event listener to each marker
     google.maps.event.addListener(marker, 'click', () => {
       let request = {
@@ -144,7 +140,6 @@ function createMarkers(results) {
 
   // Zooms the map to fit
   map.fitBounds(mapBounds);
-
 }
 
 // Deletes previous markers

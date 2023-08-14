@@ -9,6 +9,7 @@ let infoPanelPhoto;
 let infoPanelDetails;
 
 function initMap() {
+    // Location: Falmouth, UK
     pos = {lat: 50.152573, lng: -5.066270};
     map = new google.maps.Map(document.getElementById('guide-map'), {
         center: pos,
@@ -19,6 +20,7 @@ function initMap() {
     infoWindow = new google.maps.InfoWindow;
     currentInfoWindow = infoWindow;
 
+    // Assigns 'card', 'photo' and 'details' from index.html to infoPanel variables
     infoPanel = document.getElementById('guide-card');
     infoPanelPhoto = document.getElementById('photo');
     infoPanelDetails = document.getElementById('details');
@@ -26,6 +28,7 @@ function initMap() {
     getNearbyPlaces(pos);
 }
 
+// Perform a nearby search request
 function getNearbyPlaces(position) {
     let request = {
         location: position,
@@ -37,12 +40,14 @@ function getNearbyPlaces(position) {
     service.nearbySearch(request, nearbyCallback);
 }
 
+// Handles the results (up to 20) of nearby search request
 function nearbyCallback(results, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
         createMarkers(results);
     }
 }
 
+// Creates markers for results and zooms map to fit
 function createMarkers(places) {
     places.forEach(place => {
         let marker = new google.maps.Marker({
@@ -52,12 +57,14 @@ function createMarkers(places) {
             title: place.name
         });
 
+        // Adds click event listener to each marker
         google.maps.event.addListener(marker, 'click', () => {
             let request = {
                 placeId: place.place_id,
                 fields: ['name', 'formatted_address', 'geometry', 'rating', 'website', 'photos']
             };
 
+            // Only fetch place details when user clicks on a marker
             service.getDetails(request, (placeResult, status) => {
                 showDetails(placeResult, marker, status)
             });
@@ -66,9 +73,11 @@ function createMarkers(places) {
         mapBounds.extend(place.geometry.location);
     });
 
+    // Zooms the map to fit
     map.fitBounds(mapBounds);
 }
 
+// Shows place details in infoWindow above marker
 function showDetails(placeResult, marker, status) {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
       let placeInfowindow = new google.maps.InfoWindow();
@@ -82,6 +91,7 @@ function showDetails(placeResult, marker, status) {
     }
 }
 
+// Displays place details in infoPanel AKA 'card'
 function showPanel(placeResult) {
     // If infoPanel is already open, close it
     if (infoPanel.classList.contains("open")) {
