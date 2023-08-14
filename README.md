@@ -19,20 +19,20 @@ An interactive outdoor adventure website intended to help users get out and expl
     * [Inspiration Page](#inspiration-inspirationhtml)
     * [Contact Page](#contact-contacthtml)
 6. [Pre-Deployment Testing](#pre-deployment-testing)
-    * [Responsiveness](#)
-    * [Browser Compatibility](#)
-    * [Bug Fixes](#)
-    * [Code Validation](#)
-    * [User Story Testing](#)
-    * [Feature Testing](#)
+    * [Manual vs. Automated Testing](#manual-vs-automated-testing)
+    * [Testing During Development](#testing-during-development)
+    * [Bug Fixes](#bug-fixes)
+    * [Responsiveness](#responsiveness)
+    * [Browser Compatibility](#browser-compatibility)
+    * [Code Validation](#code-validation)
+    * [User Story Testing](#user-story-testing)
+    * [Feature Testing](#feature-testing)
 7. [Deployment](#deployment)
 8. [Post-Deployment Testing](#post-deployment-testing)
-    * [Responsiveness](#)
-    * [Browser Compatibility](#)
-    * [Bug Fixes](#)
-    * [Lighthouse Testing](#)
-    * [Feature Testing](#)
-    * [Future Improvements](#)
+    * [Responsiveness](#responsiveness-1)
+    * [Browser Compatibility](#browser-compatibility-1)
+    * [Lighthouse Testing](#lighthouse-testing)
+    * [Future Improvements](#future-improvements)
 9. [Credits & Acknowledgements](#credits--acknowledgements)
 
 ---
@@ -189,7 +189,7 @@ Roboto will be used for paragraph text, links and the footer. The following scre
 - JavaScript
 
 ### Version Control
-During site development GitHub was used to manage versions of each file, commits were made often and consisted of small bite-sized edits to individual features so it would be easier to roll back the site to a previous version if required. Compared to milestone project one, there were fewer commits due to the initial HTML and CSS being boilerplate code from the previous project, however, I was more thorough when it came to commits, ensuring that new features had an individual commit and there was little crossover. This was also due to JavaScript being a steep learning curve and by committing little and often I could rollback a feature if it went wrong or affected another part of the site. In total, there were 39 commits for this project. Details of the commits can be found here: https://github.com/Renz2299/mp2_weekend_wanderer/commits/main
+During site development GitHub was used to manage versions of each file, commits were made often and consisted of small bite-sized edits to individual features so it would be easier to roll back the site to a previous version if required. Compared to milestone project one, there were fewer commits due to the initial HTML and CSS being boilerplate code from the previous project, however, I was more thorough when it came to commits, ensuring that new features had an individual commit and there was little crossover. This was also due to JavaScript being a steep learning curve and by committing little and often I could rollback a feature if it went wrong or affected another part of the site. In total, there were 41 commits for this project. Details of the commits can be found here: https://github.com/Renz2299/mp2_weekend_wanderer/commits/main
 
 ---
 
@@ -305,11 +305,46 @@ The Thank You page contains the following text:
 
 ![Thank you page text](assets/img/readme_imgs/thank_you.png)
 
+---
+
 ## Pre-Deployment Testing
+
+### Manual vs. Automated Testing
+
+Manual and automated testing are two fundamental approaches to testing a web application to check quality, functionality, and reliability. They serve different purposes and can be used in conjunction to achieve comprehensive testing.
+
+#### Manual Testing
+Manual testing involves human testers (often developers) carrying out test cases without the assistance of automation. It is often used in the early stages of development when the application is rapidly evolving. The key benefits of manual testing are:
+- Testers can use their intuition, creativity, and knowledge to explore the application and find unexpected issues.
+- Manual testers can better assess the user experience and accessibility of an application due to it being a subjective topic.
+- Testers can adapt test cases based on real-time updates, making it more effective for fast-paced, evolving projects.
+- Manual testers are better at spotting edge cases that might not be covered by automated tests.
+
+#### When to Deploy Manual Testing
+- **Early Development:** In the early stages of development when the site requirements are still evolving.
+- **User Experience Testing:** To evaluate the user experience and visual design.
+- **Exploratory Testing:** For scenarios that are difficult to replicate with test script, or when new features/ changes need quick validation.
+
+#### Automated Testing
+Automated testing involves the use of software to execute pre-defined test cases. It is often used later on in the development process when the application is well-defined. The key benefits of automated testing are:
+- Automated tests can be repeated to ensure consistent results and reduce human error.
+- Automated tests can quickly execute a large amount of test cases, providing rapid feedback.
+- Automated tests follow pre-defined scripts, ensuring consistency throughout the testing process.
+- Automated tests can recreate complex scenarios and interactions that might be challenging to replicate manually.
+- While the initial setup of automated tests requires more effort, they can save time and resources for repeated testing.
+
+#### When to Deploy Automated Testing
+- **Repetitive Tasks:** Automating repetitive and time-consuming tests can increase efficiency.
+- **Large Projects:** Automated testing is helpful when dealing with large and complex projects.
+- **Consistency:** Automated tests help maintain consistent testing procedures.
+
+In practice, a combination of manual and automated testing is often the most effective approach. Automated testing is excellent for repetitive tasks and ensuring consistent functionality, while manual testing provides a more human-centric evaluation and is adaptable to changing requirements.
+
+For the Weekend Wanderer site, I have decided to only carry out manual testing. This is because the JavaScript code is mainly centered around the use of APIs where there is a large amount of tried and tested documentation to support the use of them. The rest of the code is HTML and CSS which is quite simple to manually test.
 
 ### Testing During Development
 
-Testing was carried out during development to check features were working as expected and to identify issues immediately so they could be rectified. This was done using the Live Server extension for VSCode.
+Testing was carried out during development to check features were working as expected and to identify issues immediately so they could be rectified. This was done using the Live Server extension for VS Code.
 
 The interactive map on index.html was tested each time new section of code was added (eg. a new function or change to a function) to check the new code was working as well as allow myself to better understand the code I was adding since this was my first project using JavaScript and I was relying on a lot of trial and error to get the code working properly.
 
@@ -464,6 +499,8 @@ Contact Form | Hover over data fields | Cursor changes to a text cursor, border 
 
 The only bug that came from this testing was the website links for a place did not open in a new tab. Therefore, to resolve this I added a setAttribute to the weblink variable to set the target of the link to _blank.
 
+---
+
 ## Deployment
 
 The site was deployed on GitHub Pages using the following steps:
@@ -476,6 +513,8 @@ The site was deployed on GitHub Pages using the following steps:
 7. View the deployed site using the 'Visit site' button at the top of the page.
 
 ![alt text](assets/img/readme_imgs/deployment_steps.png "Title")
+
+---
 
 ## Post-Deployment Testing
 
@@ -569,6 +608,8 @@ The further improvements I would like to make are:
 - Allow the place card image to always fill the entire height of the card no matter the screen size.
 - Make the geolocation status window disappear once the user has searched for a place type.*
 - Turn the place web link into a button.*
+
+---
 
 ## Credits & Acknowledgements
 
